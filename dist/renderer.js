@@ -105,7 +105,7 @@ exports.createMainWindow = function (forceDev) {
                         }); });
                     }
                     win = new electron_1.BrowserWindow({
-                        height: 835,
+                        height: 874,
                         show: false,
                         frame: false,
                         titleBarStyle: 'hidden',
@@ -117,9 +117,9 @@ exports.createMainWindow = function (forceDev) {
                             backgroundThrottling: false,
                             devTools: isDev || forceDev
                         },
-                        minWidth: 775,
-                        minHeight: 835,
-                        width: 1010
+                        minWidth: 950,
+                        minHeight: 874,
+                        width: 1200
                     });
                     electron_1.ipcMain.on('min', function () {
                         win.minimize();
@@ -145,7 +145,7 @@ exports.createMainWindow = function (forceDev) {
                 case 8:
                     config = _a.sent();
                     win.setMenuBarVisibility(false);
-                    startUrl = "http://localhost:" + config.port + "/";
+                    startUrl = "http://" + config_1.internalIP + ":" + config.port + "/";
                     win.webContents.on('new-window', function (e, url) {
                         e.preventDefault();
                         electron_1.shell.openExternal(url);
